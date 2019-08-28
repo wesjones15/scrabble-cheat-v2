@@ -9,7 +9,7 @@ export default (letters) => {
     })
     
     if (!isInvalid) {
-        if (letters.length <= 7 && letters.length > 0) return true
+        if (letters.length <= 7 && letters.length >= 0) return true
         else return false
     } else return false
 }

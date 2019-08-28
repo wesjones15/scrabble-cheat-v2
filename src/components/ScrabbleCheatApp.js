@@ -1,47 +1,19 @@
-import React, { useState } from 'react'
-import verifySevenLetters from '../logic/verifySevenLetters'
-import returnBestWords from '../logic/returnBestWords'
+import React, { useReducer } from 'react'
+import InputForm from './InputForm'
+import ResultsList from './ResultsList'
+import LettersContext from '../context/letters-context'
+import lettersReducer from '../reducers/letters'
 
-const ScrabbleCheatApp = (props) => {
-    const [letters, setLetters] = useState(props.letters)
-    const [results, setResults] = useState()
-
-    const onInputChange = (e) => {
-        const letters__toVerify = e.target.value.toUpperCase()
-        if (verifySevenLetters(letters__toVerify)) {
-            setLetters(letters__toVerify)
-        }
-    }
-
-    const onSubmit = (e) => {
-        e.preventDefault()
-        console.log(letters)
-        let resultsIn = returnBestWords(letters)
-        console.log(resultsIn)
-        setResults(resultsIn)
-    }
+const ScrabbleCheatApp = () => {
+    const [results, dispatch] = useReducer(lettersReducer, [])
 
     return (
-        <div>
+        <LettersContext.Provider value={{ results, dispatch }}>
             <h1>Scrabble Cheatify</h1>
 
-            <form onSubmit={onSubmit}>
-                <h1>Enter your seven letters</h1>
-                <input onChange={onInputChange} type="text" value={letters} />
-                <button>Find</button>
-            </form>
-
-            <div>
-                { results ? 
-                    results.map(result => (
-                        <div key={result[0]}>
-                            <h3>{result[0]}</h3>
-                            <h3>{result[1]}</h3>
-                        </div>
-                    )) : (<div />)
-                }
-            </div>
-        </div>
+            <InputForm />
+            <ResultsList />
+        </LettersContext.Provider>
     )
 }
 
