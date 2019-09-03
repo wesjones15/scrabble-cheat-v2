@@ -9,7 +9,7 @@ const ScrabbleCheatApp = () => {
 
     return (
         <LettersContext.Provider value={{ results, dispatch }}>
-            <h1>Scrabble Cheatify</h1>
+            <h1>Scrabble Cheat</h1>
 
             <InputForm />
             <ResultsList />
