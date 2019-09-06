@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
-import verifySevenLetters from '../logic/verifySevenLetters'
+import verifyLetterInput from '../logic/verifyLetterInput'
 import { fuseWord } from '../logic/wordFunctions'
 // import returnBestWords from '../logic/returnBestWords'
 import LettersContext from '../context/letters-context'
@@ -11,6 +11,7 @@ const InputForm = (props) => {
 
     const onInputChange = (e) => {
         
+        
         // const letters__toVerify = e.target.value.toUpperCase()
         // if (verifySevenLetters(letters__toVerify)) {
         //     setLetters(letters__toVerify)
@@ -20,16 +21,26 @@ const InputForm = (props) => {
         let letters_array = []
 
         for (let i = 0; i < 7; i++) {
-            // letters_array.push(document.getElementsByTagName('input')[i].value)
-            letters_array[i] = document.getElementsByTagName('input')[i].value
+            let eachLetter = document.getElementsByTagName('input')[i].value.toUpperCase()
+            console.log(eachLetter)
+            if (verifyLetterInput(eachLetter)) {
+                letters_array[i] = eachLetter
+            } else letters_array[i] = ""
+            console.log(letters_array[i])
+            // if (eachLetter) {
+                document.getElementsByTagName('input')[i].value = letters_array[i]
+            // } 
         }
+
+        // for (let i = 0; i < 7; i++) {
+        //     document.getElementsByTagName('input')[i].value = letters_array[i]
+        // }
         console.log(letters_array)
         setLetters(fuseWord(letters_array))
     }
 
     const onSubmit = (e) => {
         e.preventDefault()
-        // dispatch({ type: "RETURN_BEST_WORDS", letters })
         
         dispatch({ type: "RETURN_BEST_WORDS", letters })
 

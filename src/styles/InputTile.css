@@ -1,0 +1,9 @@
+.tile {
+    background: #c2853f;
+    border: none;
+    border-bottom: 2px solid #975a14;
+    border-right: 2px solid #975a14;
+    height: 50px;
+    width: 45px;
+    padding-right: 5px;
+}
