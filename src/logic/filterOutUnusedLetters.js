@@ -5,6 +5,7 @@
 import scrabble_word_list from './text/scrabble_word_list'
 
 const filterOutUnusedLetters = (letters) => {
+    console.log('filer fired');
     const alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
     // console.log(scrabble_word_list)
     const scrabble_dictionary = scrabble_word_list.split('\n').filter(word => word.length <= 7)

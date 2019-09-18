@@ -4,6 +4,7 @@ import LettersContext from '../context/letters-context'
 
 const ResultsList = () => {
     const { results } = useContext(LettersContext)
+    console.log("FROM RESULTS LIST\t", results)
     return (
         <div>
             { results ? results.map(result => (

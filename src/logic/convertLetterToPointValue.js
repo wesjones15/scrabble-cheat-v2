@@ -9,6 +9,11 @@ const convertLetterToPointValue = (letter) => {
         [['Q', 'Z'], 10]
     ]
     let value = 0
+    // tileScoreGroups.forEach(letters, points => {
+    //     if (letters.includes(letter)) {
+    //         value = points
+    //     }
+    // })
     tileScoreGroups.forEach(tileGroup => {
         if (tileGroup[0].includes(letter)) {
             value = tileGroup[1]
