@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useContext } from 'react'
 // import verifySevenLetters from '../logic/verifySevenLetters'
-import { fuseWord } from '../logic/wordFunctions'
+// import { fuseWord } from '../logic/wordFunctions'
 // import returnBestWords from '../logic/returnBestWords'
 import LettersContext from '../context/letters-context'
 
-import PostToAPI from './PostToAPI'
+// import PostToAPI from './PostToAPI'
 
 const InputForm = (props) => {
     const { dispatch } = useContext(LettersContext)
