@@ -9,7 +9,7 @@ import lettersReducer from '../reducers/letters'
 
 export const ScrabbleCheatApp = (props) => {
     const [results, dispatch] = useReducer(lettersReducer, [])
-    console.log('SCRABBLECHEATAPP\t', results)
+    // console.log('SCRABBLECHEATAPP\t', results)
     // console.log('omfg', props);
 
     return (

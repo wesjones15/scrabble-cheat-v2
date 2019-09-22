@@ -3,13 +3,14 @@ import React, { useState, useContext } from 'react'
 // import { fuseWord } from '../logic/wordFunctions'
 // import returnBestWords from '../logic/returnBestWords'
 import LettersContext from '../context/letters-context'
+import GETwords from '../logic/commWithAPI'
 
 // import PostToAPI from './PostToAPI'
 
 const InputForm = (props) => {
     const { dispatch } = useContext(LettersContext)
     const [letters, setLetters] = useState(props.letters)
-    // const [results, setResults] = useState()
+    const [results, setResults] = useState(props.results)
 
     const onInputChange = (e) => {
         
@@ -30,12 +31,28 @@ const InputForm = (props) => {
         // setLetters(fuseWord(letters_array))
     }
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault()
         // dispatch({ type: "RETURN_BEST_WORDS", letters })
-        console.log("WITHIN ONSUBMIT",letters)
-        dispatch({ type: "RETURN_BEST_WORDS", letters })
-        // PostToAPI(letters)
+        // console.log("WITHIN ONSUBMIT",letters)
+        // dispatch({ type: "RETURN_BEST_WORDS", letters })
+
+        let url = "http://0.0.0.0:5000/words/"
+        const query = letters.reduce((acc, letter) => acc + letter, '')
+        url += query
+        let words = await fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                console.log('within fetch then', data)
+                setResults(data['words'])
+            })
+
+
+        // const theAnswer = await GETwords(letters)
+        //     .then(response => console.log("ONSUBMIT", response))
+        // await setResults(PostToAPI(letters))
+        // console.log(results)
+
         // console.log(letters)
         // let resultsIn = returnBestWords(letters)
         // console.log(resultsIn)
@@ -60,6 +77,7 @@ const InputForm = (props) => {
             <input className="sevenTileStyle" onChange={onInputChange} type="text" />
             <input className="sevenTileStyle" onChange={onInputChange} type="text" />
             <button>Find</button>
+            <h4>{results}</h4>
         </form>
     )
 }
