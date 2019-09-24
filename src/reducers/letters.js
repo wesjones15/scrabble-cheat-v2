@@ -17,7 +17,7 @@ const lettersReducer = async (state, action) => {
                 //     })
 
 
-
+            
             console.log("action.letters\t",action.letters)
             const words = await GETwords(action.letters)
                 .then(response => {

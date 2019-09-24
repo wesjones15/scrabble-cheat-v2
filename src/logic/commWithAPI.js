@@ -8,8 +8,8 @@ const GETwords = (letters) => {
     let url = "http://0.0.0.0:5000/words/"
     const query = letters.reduce((acc, letter) => acc + letter, '')
     url += query
-    let words = fetch(url)
-        .then(res => res.json())
+    // fetch(url, method="POST")
+    let words = fetch(url).then(res => res.json())
         .then(data => {
             console.log('within fetch then', data)
             return data['words']
@@ -42,7 +42,7 @@ const GETwords = (letters) => {
 }
 
 
-const wordResult = GETwords(["A","B","F","E","I","G","L"])
-    .then(response => console.log("response",response))
+// const wordResult = GETwords(["A","B","F","E","I","G","L"])
+//     .then(response => console.log("response",response))
 
-// export {GETwords as default}
+export {GETwords as default}

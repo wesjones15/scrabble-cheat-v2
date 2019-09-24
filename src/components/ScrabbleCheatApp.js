@@ -6,7 +6,7 @@ import LettersContext from '../context/letters-context'
 import lettersReducer from '../reducers/letters'
 // import verifyLetterInput from '../logic/verifyLetterInput'
 // import PostToAPI from './PostToAPI'
-
+import Result from './Result'
 export const ScrabbleCheatApp = (props) => {
     const [results, dispatch] = useReducer(lettersReducer, [])
     // console.log('SCRABBLECHEATAPP\t', results)
@@ -31,6 +31,43 @@ export const ScrabbleCheatApp = (props) => {
     // Create Component For Individual Input Field
 
 // Create Results Page Component and Result Component
+
+export class App extends React.Component {
+    state = {
+        results: undefined
+    }
+    getWords = async (e) => {
+        e.preventDefault()
+        const letters = e.target.elements.letters.value
+        const query = letters.toUpperCase()//.reduce((acc, letter) => acc + letter, '')
+        const url = "http://0.0.0.0:5000/words/"+query
+        const response = await fetch(url)
+        const data = await response.json()
+        console.log(data)
+        this.setState({
+            results: data.words
+        })
+        console.log(this.state)
+    }
+    render() {
+        return (
+            <div>
+                <form onSubmit={this.getWords}>
+                    <input type="text" name="letters" placeholder="enter letters" />
+                </form>
+                <div>
+                    { this.state.results ? this.state.results.map(result => (
+                        <Result 
+                            key={result[0]}
+                            word={result[0]}
+                            score={result[1]}
+                        />
+                    )) : (<div />) }
+                </div>
+            </div>
+        )
+    }
+}
 
 // export class ParentComponentwithoutname extends React.Component {
 //     // characters = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];

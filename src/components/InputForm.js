@@ -31,21 +31,21 @@ const InputForm = (props) => {
         // setLetters(fuseWord(letters_array))
     }
 
-    const onSubmit = async (e) => {
+    const onSubmit = (e) => {
         e.preventDefault()
         // dispatch({ type: "RETURN_BEST_WORDS", letters })
         // console.log("WITHIN ONSUBMIT",letters)
-        // dispatch({ type: "RETURN_BEST_WORDS", letters })
+        dispatch({ type: "RETURN_BEST_WORDS", letters })
 
-        let url = "http://0.0.0.0:5000/words/"
-        const query = letters.reduce((acc, letter) => acc + letter, '')
-        url += query
-        let words = await fetch(url)
-            .then(res => res.json())
-            .then(data => {
-                console.log('within fetch then', data)
-                setResults(data['words'])
-            })
+        // let url = "http://0.0.0.0:5000/words/"
+        // const query = letters.reduce((acc, letter) => acc + letter, '')
+        // url += query
+        // let words = await fetch(url)
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         console.log('within fetch then', data)
+        //         setResults(data['words'])
+        //     })
 
 
         // const theAnswer = await GETwords(letters)
