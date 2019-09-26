@@ -26,22 +26,47 @@ export class ScrabbleCheatApp extends React.Component {
         const letters = this.state.letters
         const query = letters.reduce((acc, letter) => acc + letter, '')
         const url = "http://0.0.0.0:5000/words/"+query
-        const response = await fetch(url)
-        const data = await response.json()
-        console.log(data)
-        this.setState({
-            results: data.words
-        })
-        console.log(this.state)
+        try {
+            const response = await fetch(url)
+            const data = await response.json()
+            console.log(data)
+            this.setState({
+                results: data.words
+            })
+            console.log(this.state)
+        } catch {
+            console.log("scrabble-cheat-flask-api may be offline. run viewsv2.py and try again")
+        }
+        
     }
 
     render() {
         return (
             <div>
-                <h1>Scrabble Cheat</h1>
-                <Form getWords={this.getWords} onInputChange={this.onInputChange} />
-                <ResultsList results={this.state.results} />
+                <div className="wrapper">
+                    <div className="main">
+                        <div className="container">
+                            <div className="column">
+                                <div className="title-container">
+                                    <h1>Scrabble Cheat</h1>
+                                </div>
+                                <div className="form-container">
+                                    <Form 
+                                        getWords={this.getWords} 
+                                        onInputChange={this.onInputChange} 
+                                    />
+                                    <ResultsList 
+                                        results={this.state.results} 
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }
 }
+
+
+

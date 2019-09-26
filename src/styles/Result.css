@@ -1,0 +1,22 @@
+.result {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.result-word {
+    display: inline-block;
+    margin-right: 20vw;
+    align-items: left;
+    justify-content: left;
+}
+
+.result-score {
+    display: inline-block;
+}
+
+/* h1 {
+    display: flex;
+    float: left;
+} */
