@@ -11,13 +11,13 @@ export class Form extends React.Component {
                         </div>
                     </div>
                     <div className="row form">
-                            <input className="sevenTileStyle" onChange={this.props.onInputChange} type="text" />
-                            <input className="sevenTileStyle" onChange={this.props.onInputChange} type="text" />
-                            <input className="sevenTileStyle" onChange={this.props.onInputChange} type="text" />
-                            <input className="sevenTileStyle" onChange={this.props.onInputChange} type="text" />
-                            <input className="sevenTileStyle" onChange={this.props.onInputChange} type="text" />
-                            <input className="sevenTileStyle" onChange={this.props.onInputChange} type="text" />
-                            <input className="sevenTileStyle" onChange={this.props.onInputChange} type="text" />
+                            <input className="tileStyle" onChange={this.props.onInputChange} type="text" />
+                            <input className="tileStyle" onChange={this.props.onInputChange} type="text" />
+                            <input className="tileStyle" onChange={this.props.onInputChange} type="text" />
+                            <input className="tileStyle" onChange={this.props.onInputChange} type="text" />
+                            <input className="tileStyle" onChange={this.props.onInputChange} type="text" />
+                            <input className="tileStyle" onChange={this.props.onInputChange} type="text" />
+                            <input className="tileStyle" onChange={this.props.onInputChange} type="text" />
                     </div>
                     <div className="row form form-button">
                         <button className="form-button__display">Find</button>

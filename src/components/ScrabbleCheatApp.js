@@ -10,15 +10,23 @@ export class ScrabbleCheatApp extends React.Component {
 
     onInputChange = (e) => {
         e.preventDefault()
-        let letters_array = []
 
+        let letters_array = []  // save current input letters to state
         for (let i = 0; i < 7; i++) {
             letters_array[i] = document.getElementsByTagName('input')[i].value.toUpperCase()
         }
         this.setState({
             letters: letters_array
         })
-        console.log(this.state)
+
+        try {   // auto change focus on input
+            if (document.activeElement.value.length >= 1) {
+                document.activeElement.value = document.activeElement.value.toUpperCase()
+                document.activeElement.nextSibling.focus()
+            }
+        } catch {
+            // Do nothing
+        }
     }
 
     getWords = async (e) => {
