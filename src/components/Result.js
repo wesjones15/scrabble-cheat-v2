@@ -3,16 +3,15 @@ import React from 'react'
 const Result = ({word, score}) => {
     // const display = word + "\t" + score
     return (
-        <div>
+        <div className="container">
             <div className="row result">
-                <div className="col-xs-6 result-word">
+                <div className="col col-xs-6 word-container">
                     <h1>{word}</h1>
                 </div>
-                <div className="col-xs-6 result-score">
+                <div className="col col-xs-6 score-container">
                     <h1>{score}</h1>
                 </div>
             </div>
-            
         </div>
     )
 }

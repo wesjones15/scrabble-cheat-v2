@@ -23,18 +23,25 @@ export class ScrabbleCheatApp extends React.Component {
 
     getWords = async (e) => {
         e.preventDefault()
-        const letters = this.state.letters
+        const letters = this.state.letters || ['a']
         const query = letters.reduce((acc, letter) => acc + letter, '')
-        const url = "http://0.0.0.0:5000/words/"+query
+        // const url = "http://0.0.0.0:5000/words/"+query
+        const url = 'http://scrabble-cheat-flask-api.herokuapp.com/words/'+query
         try {
             const response = await fetch(url)
             const data = await response.json()
-            console.log(data)
+            console.log("THE DATA",data)
+            if (!this.state.letters) {
+                data.words = [['PLEASE', 'TYPE YOUR'], ['LETTERS', 'IN THE'], ['FIELDS','ABOVE']]
+            }
             this.setState({
                 results: data.words
             })
             console.log(this.state)
         } catch {
+            this.setState({
+                results: [['THE', 'API'], ['MUST', 'BE'], ['OFF','LINE']]
+            })
             console.log("scrabble-cheat-flask-api may be offline. run viewsv2.py and try again")
         }
         

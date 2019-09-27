@@ -5,12 +5,15 @@ export class ResultsList extends React.Component {
     render() {
         return (
             <div>
-                {this.props.results ? 
-                    <Result 
-                        word={"Word"}
-                        score={"Score"}
-                    /> : <div />
-                }
+                <div className="headings">
+                    {this.props.results ? 
+                        <Result
+                            word={"Word"}
+                            score={"Score"}
+                        /> : <div />
+                    }
+                </div>
+                
                 { this.props.results ? this.props.results.map(result => (
                     <Result 
                         key={result[0]}
