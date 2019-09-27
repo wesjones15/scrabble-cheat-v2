@@ -22,7 +22,7 @@ export class ScrabbleCheatApp extends React.Component {
         try {   // auto change focus on input
             if (document.activeElement.value.length >= 1) {
                 document.activeElement.value = document.activeElement.value.toUpperCase()
-                document.activeElement.nextSibling.focus()
+                document.activeElement.nextSibling.focus().select()
             }
         } catch {
             // Do nothing

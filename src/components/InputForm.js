@@ -1,6 +1,10 @@
 import React from 'react'
 
 export class Form extends React.Component {
+    onFocus = (e) => {
+        e.preventDefault()
+        document.activeElement.select()
+    }
     render() {
         return (
             <form onSubmit={this.props.getWords}>
@@ -11,13 +15,13 @@ export class Form extends React.Component {
                         </div>
                     </div>
                     <div className="row form">
-                            <input className="tileStyle" onChange={this.props.onInputChange} type="text" />
-                            <input className="tileStyle" onChange={this.props.onInputChange} type="text" />
-                            <input className="tileStyle" onChange={this.props.onInputChange} type="text" />
-                            <input className="tileStyle" onChange={this.props.onInputChange} type="text" />
-                            <input className="tileStyle" onChange={this.props.onInputChange} type="text" />
-                            <input className="tileStyle" onChange={this.props.onInputChange} type="text" />
-                            <input className="tileStyle" onChange={this.props.onInputChange} type="text" />
+                            <input className="tileStyle" onFocus={this.onFocus} onChange={this.props.onInputChange} type="text" />
+                            <input className="tileStyle" onFocus={this.onFocus} onChange={this.props.onInputChange} type="text" />
+                            <input className="tileStyle" onFocus={this.onFocus} onChange={this.props.onInputChange} type="text" />
+                            <input className="tileStyle" onFocus={this.onFocus} onChange={this.props.onInputChange} type="text" />
+                            <input className="tileStyle" onFocus={this.onFocus} onChange={this.props.onInputChange} type="text" />
+                            <input className="tileStyle" onFocus={this.onFocus} onChange={this.props.onInputChange} type="text" />
+                            <input className="tileStyle" onFocus={this.onFocus} onChange={this.props.onInputChange} type="text" />
                     </div>
                     <div className="row form form-button">
                         <button className="form-button__display">Find</button>
