@@ -26,7 +26,7 @@ export class ScrabbleCheatApp extends React.Component {
         const letters = this.state.letters || ['a']
         const query = letters.reduce((acc, letter) => acc + letter, '')
         // const url = "http://0.0.0.0:5000/words/"+query
-        const url = 'http://scrabble-cheat-flask-api.herokuapp.com/words/'+query
+        const url = 'https://scrabble-cheat-flask-api.herokuapp.com/words/'+query
         try {
             const response = await fetch(url)
             const data = await response.json()
