@@ -51,21 +51,19 @@ export class ScrabbleCheatApp extends React.Component {
         return (
             <div>
                 <div className="wrapper">
-                    <div className="main">
-                        <div className="container">
-                            <div className="column">
-                                <div className="title-container">
-                                    <h1>Scrabble Cheat</h1>
-                                </div>
-                                <div className="form-container">
-                                    <Form 
-                                        getWords={this.getWords} 
-                                        onInputChange={this.onInputChange} 
-                                    />
-                                    <ResultsList 
-                                        results={this.state.results} 
-                                    />
-                                </div>
+                    <div className="container">
+                        <div className="column container">
+                            <div className="title-container">
+                                <h1>Scrabble Cheat</h1>
+                            </div>
+                            <div className="form-container">
+                                <Form 
+                                    getWords={this.getWords} 
+                                    onInputChange={this.onInputChange} 
+                                />
+                                <ResultsList 
+                                    results={this.state.results} 
+                                />
                             </div>
                         </div>
                     </div>
