@@ -1,6 +1,17 @@
-TODO:
-    Use regular expressions to ensure one letter per input
-    add style to app
+# TODO:
+   ## Use regular expressions to ensure one letter per input
+   ## make css look nicer
+        ## fix the text in the input fields misaligned on Mobile Safari & Desktop Safari
+   ## add option to add up to 2 "blank" tiles to search
+   ## add ability to set position of particular letter in output word
+   ## add ability to choose desired word length
+        ## if no words or not enough words, should give user an error message about not enough
+        ## then show the next best words with fewer/greater letters
+   ## move error messages to an error element instead of showing up in results component
+        ## error: api may be offline
+        ## error: you must enter at least one letter in the fields above
+        ## error: your search returned no words
+
     
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

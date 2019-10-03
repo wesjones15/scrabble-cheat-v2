@@ -6,7 +6,7 @@
 }
 
 .tileStyle {
-    align-items: center;
+    align-items: -webkit-center;
     background: #c2853f;
     border: none;
     border-bottom: .5vw solid #975a14;
@@ -14,11 +14,11 @@
     box-shadow: 0px 5px 20px -10px rgba(0,0,0,0.75);
     font-size: 9vw;
     color: #000;
-    justify-content: center;
-    text-align: center;
+    justify-content: -webkit-center;
+    text-align: -webkit-center;
     height: 10vw;
     width: 10vw;
-    
+    line-height: 1;
     margin: 0 0.5vw 2vw 0.5vw;
 }
 .tileStyle:focus {

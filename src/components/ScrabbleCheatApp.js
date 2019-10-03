@@ -13,7 +13,10 @@ export class ScrabbleCheatApp extends React.Component {
 
         let letters_array = []  // save current input letters to state
         for (let i = 0; i < 7; i++) {
-            letters_array[i] = document.getElementsByTagName('input')[i].value.toUpperCase()
+            const value = document.getElementsByTagName('input')[i].value.toUpperCase()
+            if (value.match(/[A-Z]/)) {
+                letters_array[i] = value
+            }
         }
         this.setState({
             letters: letters_array
