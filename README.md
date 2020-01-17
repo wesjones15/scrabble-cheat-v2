@@ -8,25 +8,25 @@ Enter up to seven letters in the input fields and click *FIND*. The top three be
 
 ## Description
 ### v1
-The first iteration of Scrabble Cheat App was written entirely in JavaScript, served solely from the front end, which is build with React. 
+The first iteration of Scrabble Cheat App was written entirely in JavaScript, served solely from the front end, which is built with React. 
 
 I built this project to solidify my skills after taking an online React course.
 
 ### v2 (current)
 For the second iteration of Scrabble Cheat App, I extracted the business logic out of the front end and built a backend API with Python and Flask. 
 
-On the front end, the user inputs up to seven letters. These letters are sent as a path variable using a get request to the backend api. 
+On the front end, the user inputs up to seven letters. These letters are sent as a path variable using a GET request to the backend api. 
 
 When the backend receives the request, it parses the seven letters into a string array and performs the business logic. 
 
 It starts with a string array containing every scrabble word. 
-* First it filters out words that are longer than the user input. 
-* Then it filters out words containing letters that are not included in the user input. 
-* Then, finally, it removes words that contain more occurrences of the letters than the user provided. 
+* First, it filters out words that are longer than the user input. 
+* Then, it filters out words containing letters that are not included in the user input. 
+* Then finally, it removes words that contain more occurrences of the letters than the user provided. 
     * For example, OFE would yield OOF and OFF before this method. 
 * Then, after getting the completely filtered list to only contain words that can be created from the user input, the score of the words are determined. 
     * This is done by getting the score for each letter in the word, then returning the sum as the score for that word. 
-* Then a map of words and scores is sorted and the top 3 best scoring words are returned to the front end and displayed for the user to see on screen.
+* Then, a map of words and scores is sorted and the top 3 best scoring words are returned to the front end and displayed for the user to see on screen.
 
 I built v2 of this project after completing an online course on building RESTful APIs.
 
