@@ -2,7 +2,7 @@
 ## How to use
 
 This project is hosted on Heroku and can be accessed here:
-scrabble-cheat-v2.herokuapp.com
+scrabble-cheat.herokuapp.com
 
 Enter up to seven letters in the input fields and click *FIND*. The top three best scoring valid scrabble words and their corresponding scores will be returned and displayed on screen.
 
